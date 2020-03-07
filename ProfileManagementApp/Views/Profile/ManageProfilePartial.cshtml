@@ -1,0 +1,27 @@
+﻿
+@model ProfileManagementApp.ViewModels.ProfileManageViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false)
+    <div class="form-group">
+        <label>@Html.LabelFor(model => model.FirstName)<span style="color:red">*</span></label>
+        @Html.TextBoxFor(model => model.FirstName, new { @placeholder = "Enter First Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>@Html.LabelFor(model => model.MiddleName)</label>
+        @Html.TextBoxFor(model => model.MiddleName, new { @placeholder = "Enter Middle Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>@Html.LabelFor(model => model.LastName)<span style="color:red">*</span></label>
+        @Html.TextBoxFor(model => model.LastName, new { @placeholder = "Enter Last Name", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>@Html.LabelFor(model => model.NRIC)<span style="color:red">*</span></label>
+        @Html.TextBoxFor(model => model.NRIC, new { @placeholder = "Enter NRIC", @class = "form-control" })
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+}
